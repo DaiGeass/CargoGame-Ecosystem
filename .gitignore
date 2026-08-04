@@ -1,0 +1,74 @@
+# Dependencias
+node_modules/
+
+# Frontend generado
+dist/
+*.tsbuildinfo
+.vite/
+coverage/
+
+# Rust / Tauri generado
+target/
+src-tauri/target/
+rust-backend/target/
+src-tauri/gen/
+bundle/
+release/
+releases/
+
+# Binarios y paquetes
+*.exe
+*.msi
+*.dll
+*.so
+*.dylib
+*.AppImage
+*.deb
+*.rpm
+*.dmg
+*.pkg
+*.o
+*.a
+*.rlib
+*.rmeta
+*.pdb
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Registros y respaldos
+*.log
+*.bak
+*.bak-*
+*.orig
+*~
+arbol*.txt
+diagnostico*.txt
+
+# Variables locales y credenciales
+.env
+.env.*
+!.env.example
+privatekey
+privatekey.*
+publickey
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

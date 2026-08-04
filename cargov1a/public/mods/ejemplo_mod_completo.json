@@ -1,0 +1,221 @@
+{
+  "manifest": {
+    "id": "ejemplo_mod_dragones",
+    "name": "Dragones y Elementos",
+    "author": "Tu Nombre",
+    "version": "1.0.0",
+    "description": "Añade 5 cartas de dragón elementales y 1 personaje nuevo. Incluye imágenes y sonidos de ejemplo.",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iI2U3NDQzYyIvPjx0ZXh0IHg9IjUwIiB5PSI2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI0MCIgZmlsbD0id2hpdGUiPvCfk6Q8L3RleHQ+PC9zdmc+"
+  },
+  
+  "cards": [
+    {
+      "id": "ejemplo_aliento_fuego",
+      "name": "Aliento de Dragón",
+      "type": "damage",
+      "value": -70,
+      "description": "70 daño a todos los enemigos + 15/t x2 (fuego)",
+      "effectTiming": "immediate",
+      "duration": 0,
+      "isInstant": false,
+      "targetMode": "all_enemies",
+      "imageFront": null,
+      "tags": ["fuego", "dragon", "aoe"],
+      "rarity": "epic",
+      "customTheme": {
+        "key": "fire",
+        "bg": "#7f1d1d",
+        "bgGrad": "#991b1b",
+        "border": "#f87171",
+        "glow": "rgba(248,113,113,0.5)",
+        "text": "#fef2f2",
+        "icon": "🐉",
+        "label": "Dragón"
+      },
+      "effects": [
+        { "kind": "damage", "target": "all_enemies", "amount": 70, "label": "Aliento" },
+        { "kind": "dot", "target": "all_enemies", "amount": 15, "duration": 2, "applyTags": ["fuego"], "label": "Quemadura" }
+      ]
+    },
+    
+    {
+      "id": "ejemplo_escama_elemental",
+      "name": "Escama Elemental",
+      "type": "defense",
+      "value": 60,
+      "description": "+60 defensa x2t. Refleja 20% del daño recibido",
+      "effectTiming": "immediate",
+      "duration": 2,
+      "isInstant": false,
+      "targetMode": "self",
+      "imageFront": null,
+      "tags": ["dragon", "escudo"],
+      "rarity": "rare",
+      "effects": [
+        { "kind": "defense_buff", "target": "self", "amount": 60 },
+        { "kind": "reflect", "target": "self", "amount": 0.2, "duration": 2 }
+      ]
+    },
+    
+    {
+      "id": "ejemplo_furia_drakon",
+      "name": "Furia de Drakon",
+      "type": "buff",
+      "value": 0,
+      "description": "+80 daño x2t. Al final: -20 defensa",
+      "effectTiming": "immediate",
+      "duration": 2,
+      "isInstant": false,
+      "targetMode": "self",
+      "imageFront": null,
+      "tags": ["dragon", "furia"],
+      "rarity": "epic",
+      "effects": [
+        { "kind": "buff_self", "target": "self", "stat": "damage", "amount": 80, "duration": 2 }
+      ]
+    },
+    
+    {
+      "id": "ejemplo_invocacion_drakon",
+      "name": "Invocación: Drakon",
+      "type": "summon",
+      "value": 0,
+      "description": "Invoca un Drakon (100 HP, 40 daño) x3t",
+      "effectTiming": "immediate",
+      "duration": 3,
+      "isInstant": false,
+      "targetMode": "self",
+      "imageFront": null,
+      "tags": ["dragon", "invocacion"],
+      "rarity": "legendary",
+      "customTheme": {
+        "key": "summon",
+        "icon": "🐲",
+        "label": "Invocación"
+      }
+    },
+    
+    {
+      "id": "ejemplo_cometa_drakonico",
+      "name": "Cometa Dracónico",
+      "type": "elemental",
+      "value": -150,
+      "description": "150 daño que ignora defensa. Si el objetivo tiene <50% HP: ejecuta",
+      "effectTiming": "immediate",
+      "duration": 0,
+      "isInstant": false,
+      "targetMode": "enemy",
+      "imageFront": null,
+      "tags": ["dragon", "elemental", "ejecucion"],
+      "rarity": "legendary",
+      "formula": {
+        "expression": "target.hpPct < 50 ? 9999 : 150",
+        "resultType": "damage"
+      },
+      "ignoresDefense": true
+    }
+  ],
+  
+  "characters": [
+    {
+      "id": "ejemplo_domador_dragones",
+      "name": "Domador de Dragones",
+      "classType": "mage",
+      "hp": 2800,
+      "defense": 25,
+      "damage": 65,
+      "avatar": "🧙‍♂️",
+      "color": "#e7443c",
+      "passiveDescription": "⚡ Pasiva: +50 daño con cartas [dragon]. +10% daño por cada carta de dragón en mano",
+      "teamPassiveDescription": "👥 Pasiva equipo: aliados con [dragon] +25 daño",
+      "imageFront": null,
+      "imageBack": null,
+      "media": {
+        "soundOnIntro": null
+      },
+      "abilities": [
+        {
+          "id": "ejemplo_h1",
+          "name": "Llamada del Dragón",
+          "description": "Roba 2 cartas [dragon] del mazo",
+          "cooldown": 8,
+          "currentCooldown": 0,
+          "isTeamAbility": false,
+          "passive": "",
+          "canTarget": "self"
+        },
+        {
+          "id": "ejemplo_h2",
+          "name": "Pacto Elemental",
+          "description": "+100 daño x2t. -30% curación recibida",
+          "cooldown": 10,
+          "currentCooldown": 0,
+          "isTeamAbility": false,
+          "passive": "",
+          "canTarget": "self"
+        },
+        {
+          "id": "ejemplo_h3",
+          "name": "Montar Dragón",
+          "description": "Inmune a daño x1t. 80 daño al final del turno",
+          "cooldown": 12,
+          "currentCooldown": 0,
+          "isTeamAbility": false,
+          "passive": "",
+          "canTarget": "self"
+        },
+        {
+          "id": "ejemplo_e1",
+          "name": "Legado Dracónico",
+          "description": "Aliado gana +40 daño x2t si tiene [dragon]",
+          "cooldown": 10,
+          "currentCooldown": 0,
+          "isTeamAbility": true,
+          "passive": "",
+          "canTarget": "ally"
+        },
+        {
+          "id": "ejemplo_e2",
+          "name": "Protección Ancestral",
+          "description": "Aliado +50 defensa x2t",
+          "cooldown": 10,
+          "currentCooldown": 0,
+          "isTeamAbility": true,
+          "passive": "",
+          "canTarget": "ally"
+        },
+        {
+          "id": "ejemplo_e3",
+          "name": "Furia Compartida",
+          "description": "Todos los aliados con [dragon] +30 daño x2t",
+          "cooldown": 14,
+          "currentCooldown": 0,
+          "isTeamAbility": true,
+          "passive": "",
+          "canTarget": "ally"
+        }
+      ]
+    }
+  ],
+  
+  "combos": [
+    {
+      "id": "ejemplo_combo_furia_elemental",
+      "name": "Furia Elemental",
+      "requiredCards": ["ejemplo_aliento_fuego", "ejemplo_furia_drakon"],
+      "description": "Aliento + Furia",
+      "effectDescription": "+100 daño adicional, ignora defensa",
+      "isTeamCombo": false,
+      "bonusValue": 100
+    },
+    {
+      "id": "ejemplo_combo_proteccion_drakon",
+      "name": "Protección Dracónica",
+      "requiredCards": ["ejemplo_escama_elemental", "ejemplo_invocacion_drakon"],
+      "description": "Escama + Invocación",
+      "effectDescription": "+40 defensa extra, invocación dura 2t más",
+      "isTeamCombo": false,
+      "bonusValue": 0
+    }
+  ]
+}

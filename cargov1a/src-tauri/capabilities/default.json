@@ -1,0 +1,40 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Permisos base para CARGAS ecosystem",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "fs:default",
+    "fs:allow-exists",
+    "fs:allow-mkdir",
+    "fs:allow-read-dir",
+    "fs:allow-read-text-file",
+    "fs:allow-write-text-file",
+    {
+      "identifier": "fs:scope",
+      "allow": [
+        "$HOME/.local/share/cargas-ecosystem",
+        "$HOME/.local/share/cargas-ecosystem/**",
+        "$HOME/.local/share/cargas-ecosystem/**/*",
+        "$APPDATA/cargas-ecosystem",
+        "$APPDATA/cargas-ecosystem/**",
+        "$APPDATA/cargas-ecosystem/**/*",
+        "$HOME/AppData/Roaming/cargas-ecosystem",
+        "$HOME/AppData/Roaming/cargas-ecosystem/**",
+        "$HOME/AppData/Roaming/cargas-ecosystem/**/*",
+        "$HOME/Library/Application Support/cargas-ecosystem",
+        "$HOME/Library/Application Support/cargas-ecosystem/**",
+        "$HOME/Library/Application Support/cargas-ecosystem/**/*",
+        "$HOME/AppData/Local/cargas-ecosystem",
+        "$HOME/AppData/Local/cargas-ecosystem/**",
+        "$HOME/AppData/Local/cargas-ecosystem/**/*",
+        "$LOCALDATA/cargas-ecosystem",
+        "$LOCALDATA/cargas-ecosystem/**",
+        "$LOCALDATA/cargas-ecosystem/**/*"
+      ]
+    }
+  ]
+}
